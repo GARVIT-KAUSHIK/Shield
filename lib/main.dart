@@ -39,7 +39,7 @@ class HomeScreen extends StatelessWidget {
                   gradient: LinearGradient(
                     begin: Alignment.topRight,
                     end: Alignment.topLeft,
-                    colors: [Color(0xFF3383CD), Color(0Xff11249F)],
+                    colors: [Color(0xffDAA520), Color(0XffDAA520)],//
                   ),
                   image: DecorationImage(
                       image: AssetImage('assets/images/virus.png'))),
@@ -77,6 +77,47 @@ class HomeScreen extends StatelessWidget {
                 ],
               ),
             ),
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              FlatButton(
+                onPressed: () {},
+                child: Center(
+                  child: Text(
+                    'Care',
+                    style: TextStyle(color: Colors.white),
+                  ),),
+                color: Colors.green,
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              FlatButton(
+                onPressed: () {},
+                child: Center(
+                  child: Text(
+                    'Immunity',
+                    style: TextStyle(color: Colors.white),
+                  ),),
+                color: Colors.green,
+              ),
+              SizedBox(
+                width: 10,
+              ),
+              FlatButton(
+                onPressed: () {},
+                child: Center(
+                  child: Text(
+                    'Senitization',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                color: Colors.green,
+              ),
+
+
+            ],
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: 20),
@@ -126,7 +167,7 @@ class HomeScreen extends StatelessWidget {
                         children: [
                           TextSpan(text: "Case Update", style: kTitleTextstyle),
                           TextSpan(
-                            text: "Latest update May 14",
+                            text: "\nLatest update May 14",
                             style: TextStyle(color: kTextLightColor),
                           )
                         ],
@@ -157,8 +198,118 @@ class HomeScreen extends StatelessWidget {
                     ],
                   ),
                   child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                  Counter(),
+
+                      Column(
+                        children: <Widget>[
+                          Container(
+                            padding: EdgeInsets.all(6),
+                            height: 25,
+                            width: 25,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: kInfectedColor.withOpacity(.26),
+                            ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.transparent,
+                                border: Border.all(color:kInfectedColor),
+                              ),
+                              width: 2,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "81970",
+                            style: TextStyle(
+                              fontSize: 30,
+                              color: kInfectedColor,
+                            ),
+                          ),
+                          Text(
+                            "Infected",
+                            style: kSubTextStyle,
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                          width:20),
+                      Column(
+                        children: <Widget>[
+                          Container(
+                            padding: EdgeInsets.all(6),
+                            height: 25,
+                            width: 25,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: kRecovercolor.withOpacity(.26),
+                            ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.transparent,
+                                border: Border.all(color:kInfectedColor),
+                              ),
+                              width: 2,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "27920",
+                            style: TextStyle(
+                              fontSize: 30,
+                              color: kRecovercolor,
+                            ),
+                          ),
+                          Text(
+                            "Recovered",
+                            style: kSubTextStyle,
+                          )
+                        ],
+                      ),
+                      SizedBox(
+                          width:20),
+                      Column(
+                        children: <Widget>[
+                          Container(
+                            padding: EdgeInsets.all(6),
+                            height: 25,
+                            width: 25,
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: kInfectedColor.withOpacity(.26),
+                            ),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                color: Colors.transparent,
+                                border: Border.all(color:kDeathColor),
+                              ),
+                              width: 2,
+                            ),
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            "2649",
+                            style: TextStyle(
+                              fontSize: 30,
+                              color: kDeathColor,
+                            ),
+                          ),
+                          Text(
+                            "Deaths",
+                            style: kSubTextStyle,
+                          )
+                        ],
+                      )
                     ],
                   ),
                 ),
@@ -170,55 +321,16 @@ class HomeScreen extends StatelessWidget {
     );
   }
 }
-class Counter extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return     Column(
-      children: <Widget>[
-        Container(
-          padding: EdgeInsets.all(6),
-          height: 25,
-          width: 25,
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            color: kInfectedColor.withOpacity(.26),
-          ),
-          child: Container(
-            decoration: BoxDecoration(
-              shape: BoxShape.circle,
-              color: Colors.transparent,
-              border: Border.all(color: kInfectedColor),
-            ),
-            width: 2,
-          ),
-        ),
-        SizedBox(
-          height: 10,
-        ),
-        Text(
-          "1046",
-          style: TextStyle(
-            fontSize: 40,
-            color: kInfectedColor,
-          ),
-        ),
-        Text(
-          "Infected",
-          style: kSubTextStyle,
-        )
-      ],
-    );
-  }
-}
+
 
 
 class MyClipper extends CustomClipper<Path> {
   @override
   Path getClip(Size size) {
     var path = Path();
-    path.lineTo(0, size.height - 80);
+    path.lineTo(0, size.height);
     path.quadraticBezierTo(
-        size.width / 2, size.height, size.width, size.height - 80);
+        size.width / 2, size.height-100, size.width, size.height);
     path.lineTo(size.width, 0);
     path.close();
     return path;
